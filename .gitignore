@@ -1,0 +1,11 @@
+.history
+/history
+
+*.log
+*.tmp
+
+.DS_Store
+.env
+.vscode
+*.pyc
+__pycache__/

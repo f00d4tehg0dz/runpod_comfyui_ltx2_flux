@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  comfyui:
+    build:
+      context: .
+      dockerfile: comfyui-with-flux-ltx2-blackwell/Dockerfile
+    image: f00d4tehg0dz/comfyui-with-flux-ltx2-blackwell:latest
+    container_name: comfyui-ltx2-flux
+    restart: unless-stopped
+
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    ports:
+      - "8188:8188"   # ComfyUI web interface
+      - "8888:8888"   # JupyterLab (optional)
+
+    volumes:
+      # Persistent storage for models and custom nodes
+      # Uncomment and modify the path as needed:
+      # - /path/to/your/comfyui:/ComfyUI
+
+      # Or use named volumes:
+      - comfyui-models:/ComfyUI/models
+      - comfyui-custom-nodes:/ComfyUI/custom_nodes
+      - comfyui-output:/ComfyUI/output
+      - comfyui-input:/ComfyUI/input
+
+    environment:
+      # HuggingFace token for gated model downloads
+      # Get your token at: https://huggingface.co/settings/tokens
+      - HF_TOKEN=${HF_TOKEN:-}
+
+      # Model download options (yes/no)
+      - DOWNLOAD_LTX=${DOWNLOAD_LTX:-yes}
+      - DOWNLOAD_FLUX=${DOWNLOAD_FLUX:-yes}
+      - DOWNLOAD_FLUX1_GATED=${DOWNLOAD_FLUX1_GATED:-no}
+
+      # Skip options (useful for faster restarts with persistent storage)
+      - SKIP_MODEL_DOWNLOAD=${SKIP_MODEL_DOWNLOAD:-no}
+      - SKIP_NODE_INSTALL=${SKIP_NODE_INSTALL:-no}
+
+      # NVIDIA settings
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+volumes:
+  comfyui-models:
+    name: comfyui-models
+  comfyui-custom-nodes:
+    name: comfyui-custom-nodes
+  comfyui-output:
+    name: comfyui-output
+  comfyui-input:
+    name: comfyui-input
