@@ -50,8 +50,8 @@ Flux 2 image generation workflow using:
 
 ```bash
 # Clone the repository
-git clone https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_zimage_flux.git
-cd runpod_comfyui_ltx2_zimage_flux
+git clone https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_flux.git
+cd runpod_comfyui_ltx2_flux
 
 # Copy and edit environment file
 cp .env.example .env
@@ -90,8 +90,8 @@ docker run --gpus all -p 8188:8188 \
 
 1. **Clone this repository:**
    ```bash
-   git clone https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_zimage_flux.git
-   cd runpod_comfyui_ltx2_zimage_flux
+   git clone https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_flux.git
+   cd runpod_comfyui_ltx2_flux
    ```
 
 2. **Build the Docker image:**
@@ -243,7 +243,7 @@ Mount a network volume to `/ComfyUI` to persist models and custom nodes:
 ## Directory Structure
 
 ```
-runpod_comfyui_ltx2_zimage_flux/
+runpod_comfyui_ltx2_flux/
 ├── README.md
 ├── build_docker.py
 ├── docker-compose.yml
