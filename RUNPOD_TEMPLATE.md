@@ -34,13 +34,6 @@ All background tasks complete!
 | `SKIP_MODEL_DOWNLOAD` | `no` | Skip all model downloads |
 | `SKIP_NODE_INSTALL` | `no` | Skip custom node installation |
 
-### Getting a HuggingFace Token
-
-1. Create account at [huggingface.co](https://huggingface.co/join)
-2. Go to [Settings > Access Tokens](https://huggingface.co/settings/tokens)
-3. Create a new token with "Read" access
-4. Add as `HF_TOKEN` environment variable in Runpod
-
 ---
 
 ## Pre-installed Models
@@ -99,7 +92,7 @@ Three pre-configured workflows are available in the ComfyUI workflow browser:
 ## Source Code
 
 This is an open source template. Source code available at:
-**[github.com/f00d4tehg0dz/runpod_comfyui_ltx2_zimage_flux](https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_zimage_flux)**
+**[github.com/f00d4tehg0dz/runpod_comfyui_ltx2_flux](https://github.com/f00d4tehg0dz/runpod_comfyui_ltx2_flux)**
 
 ---
 
@@ -116,16 +109,6 @@ This is an open source template. Source code available at:
 
 ---
 
-## Hardware Requirements
-
-| Component | Minimum | Recommended |
-|-----------|---------|-------------|
-| GPU | RTX 4090 (24GB) | RTX 5090 / Blackwell |
-| VRAM | 24GB | 48GB+ |
-| Disk | 100GB | 150GB+ |
-
----
-
 ## Troubleshooting
 
 ### First startup is slow
@@ -133,25 +116,3 @@ This is expected - models (~30-50GB) and custom nodes are being downloaded. Watc
 
 ### Models not loading
 Check the logs for download errors. Ensure `HF_TOKEN` is set for gated models.
-
-### Gated model download failed
-- Verify your `HF_TOKEN` is valid
-- Accept the model license on HuggingFace first
-- Check logs for specific error messages
-
-### Custom nodes not appearing
-Refresh your browser after the "Custom nodes installation complete" message appears in logs.
-
-### Out of VRAM
-- Use FP8 model variants (already default)
-- Reduce batch size in workflows
-- Enable tiled VAE decoding
-
----
-
-## Credits
-
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
-- [Lightricks/LTX-2](https://huggingface.co/Lightricks/LTX-2)
-- [Comfy-Org/flux2-dev](https://huggingface.co/Comfy-Org/flux2-dev)
-- [Kijai](https://github.com/kijai) - Custom nodes
