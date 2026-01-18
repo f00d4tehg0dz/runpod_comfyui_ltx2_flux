@@ -157,7 +157,8 @@ docker run --gpus all -p 8188:8188 \
 | `ltx-2-19b-distilled-fp8.safetensors` | `/ComfyUI/models/checkpoints/` | No |
 | `gemma_3_12B_it_fp8_e4m3fn.safetensors` | `/ComfyUI/models/text_encoders/` | No |
 | `MelBandRoformer_fp32.safetensors` | `/ComfyUI/models/diffusion_models/` | No |
-| `ltx-2-spatial-upscaler-x2-1.0.safetensors` | `/ComfyUI/models/latent_upscale_models/` | **Yes** |
+| `ltx-2-spatial-upscaler-x2-1.0.safetensors` | `/ComfyUI/models/latent_upscale_models/` | No |
+| `ltx-2-19b-ic-lora-detailer.safetensors` | `/ComfyUI/models/loras/` | No |
 
 ### Flux 2 Models (DOWNLOAD_FLUX=yes)
 

@@ -285,15 +285,17 @@ download_models_background() {
             "/ComfyUI/models/diffusion_models/MelBandRoformer_fp32.safetensors" \
             "MelBandRoFormer FP32 (148MB)"
 
-        # LTX-2 Latent Upscaler (gated - requires HF_TOKEN)
-        if [ -n "$HF_TOKEN" ]; then
-            hf_download \
-                "https://huggingface.co/Lightricks/ltx-video-spatial-upscaler/resolve/main/ltx-2-spatial-upscaler-x2-1.0.safetensors?download=true" \
-                "/ComfyUI/models/latent_upscale_models/ltx-2-spatial-upscaler-x2-1.0.safetensors" \
-                "LTX-2 Spatial Upscaler (gated, 1.2GB)"
-        else
-            echo "[SKIP] LTX-2 Spatial Upscaler (requires HF_TOKEN)"
-        fi
+        # LTX-2 Latent Upscaler (public)
+        hf_download \
+            "https://huggingface.co/Lightricks/LTX-2/resolve/main/ltx-2-spatial-upscaler-x2-1.0.safetensors" \
+            "/ComfyUI/models/latent_upscale_models/ltx-2-spatial-upscaler-x2-1.0.safetensors" \
+            "LTX-2 Spatial Upscaler x2 (1.2GB)"
+
+        # LTX-2 IC-LoRA Detailer
+        hf_download \
+            "https://huggingface.co/Lightricks/LTX-2-19b-IC-LoRA-Detailer/resolve/main/ltx-2-19b-ic-lora-detailer.safetensors" \
+            "/ComfyUI/models/loras/ltx-2-19b-ic-lora-detailer.safetensors" \
+            "LTX-2 19B IC-LoRA Detailer"
     else
         echo "[SKIP] LTX-2 models (DOWNLOAD_LTX=no)"
     fi

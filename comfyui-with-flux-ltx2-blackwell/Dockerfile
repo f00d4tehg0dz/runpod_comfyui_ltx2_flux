@@ -95,6 +95,9 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
+    python3-dev \
+    build-essential \
+    gcc \
     git \
     wget \
     curl \
